@@ -12,13 +12,19 @@ const propTypes = {
   edit: PropTypes.bool.isRequired,
   viewAll: PropTypes.func.isRequired,
   editItem: PropTypes.func.isRequired,
+  newItem: PropTypes.func.isRequired,
 };
 
-const ItemList = ({ view, edit, items, viewAll, editItem }) => {
+const ItemList = ({ view, edit, items, viewAll, editItem, newItem }) => {
   if (view === 'all') {
     return (
       <div className="container">
-        <ListHeader view={view} edit={edit} viewAll={() => viewAll} />
+        <ListHeader
+          view={view}
+          edit={edit}
+          viewAll={() => viewAll}
+          newItem={() => newItem}
+        />
         <ul className="center-block item-list">
           {
             items.map((item, index) =>

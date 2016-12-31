@@ -4,9 +4,10 @@ const propTypes = {
   view: PropTypes.string,
   edit: PropTypes.bool,
   viewAll: PropTypes.func,
+  newItem: PropTypes.func,
 };
 
-const ListHeader = ({ viewAll, view, edit }) => (
+const ListHeader = ({ viewAll, view, edit, newItem }) => (
   <div className="list-header row">
     <div className="col-xs-2">
       <button className="btn-info" onClick={viewAll()}>
@@ -14,13 +15,15 @@ const ListHeader = ({ viewAll, view, edit }) => (
       </button>
     </div>
     <div className="col-xs-8">
-      <h3> {view} </h3>
+      <h3> {view === 'all' ? 'Beer Recipes' : 'View Recipe'} </h3>
       {edit ? <p>edit</p> : ''}
     </div>
     <div className="col-xs-2">
       {
         view !== 'all' ? <button className="btn-success"><i className="fa fa-floppy-o" aria-hidden="true" /></button>
-                       : ''
+                       : <button className="btn-success" onClick={newItem()}>
+                         <i className="fa fa-floppy-o" aria-hidden="true" />
+                       </button>
       }
     </div>
   </div>

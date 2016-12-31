@@ -12,7 +12,7 @@ const viewAll = 'all';
 const initialState = {
   view: viewAll,
   edit: false,
-  items: {},
+  items: [],
 };
 
 
@@ -35,11 +35,15 @@ const itemReducer = (state = initialState, action) => {
       });
 
     case NEW_ITEM: {
-      const id = state.items.length + 1;
       return Object.assign({}, state, {
-        view: id,
+        view: (state.items.length + 1).toString(),
         edit: true,
-        items: Object.assign({}, state.items, { id: {} }),
+        items: state.items.concat({
+          name: 'Beer',
+          style: 'unknown',
+          instructions: 'None',
+          created: action.created,
+        }),
       });
     }
 
@@ -53,6 +57,7 @@ const itemReducer = (state = initialState, action) => {
           items: Object.assign({}, state.items, { item }),
         });
       }
+
       return Object.assign({
         view: action.item,
         edit: true,

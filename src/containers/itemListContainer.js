@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ItemList from '../components/ItemList';
-import { editItem, viewList } from '../actions/index';
+import { editItem, viewList, newItem } from '../actions/index';
 
 const mapStateToProps = state => ({
   view: state.itemReducer.view,
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   viewAll: () => dispatch(viewList()),
   editItem: itemId => dispatch(editItem(itemId)),
+  newItem: () => dispatch(newItem()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
