@@ -1,3 +1,3 @@
-# campLeaderboard
+# bev-collab
 
-An implementation of freecodecamp's leaderboard for top scoring campers.
+This is a work in progress web application that supports making, uploading, and sharing beer recipes.
