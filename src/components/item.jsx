@@ -3,9 +3,11 @@ import React, { PropTypes } from 'react';
 const propTypes = {
   name: PropTypes.string,
   style: PropTypes.string,
+  itemId: PropTypes.number,
+  editItem: PropTypes.func,
 };
 
-const Item = ({ name, style }) => (
+const Item = ({ name, style, itemId, editItem }) => (
   <li>
     <div className="row">
       <div className="col-xs-4 text-left">
@@ -15,7 +17,7 @@ const Item = ({ name, style }) => (
         {style}
       </div>
       <div className="col-xs-4 text-right">
-        <button className="btn-primary">
+        <button className="btn-primary" onClick={() => editItem(itemId)}>
           <i className="fa fa-wrench" aria-hidden="true" />
         </button>
         <button className="btn-danger">

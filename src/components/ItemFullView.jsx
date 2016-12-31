@@ -2,18 +2,19 @@ import React, { PropTypes } from 'react';
 
 const propTypes = {
   edit: PropTypes.bool.isRequired,
-  item: PropTypes.objectOf(PropTypes.shape({
+  item: PropTypes.shape({
     name: PropTypes.string,
     style: PropTypes.string,
     instructions: PropTypes.string,
-  })),
-  submitItem: PropTypes.func.isRequired,
+  }),
+  submitItem: PropTypes.func,
   editItem: PropTypes.func.isRequired,
-  deleteItem: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func,
+  index: PropTypes.number.isRequired,
 };
 
 // eslint-disable-next-line
-const ItemFullView = ({ edit, item, submitItem, editItem, deleteItem }) => (
+const ItemFullView = ({ index, edit, item, submitItem, editItem, deleteItem }) => (
   <div>
     <div className="row">
       <div className="col-xs-8">
@@ -28,15 +29,15 @@ const ItemFullView = ({ edit, item, submitItem, editItem, deleteItem }) => (
     <div className="right-block">
       {
         edit ?
-          <button className="btn-success" onClick={submitItem()}>
-            <i className="fa fa-floppy" aria-hidden="true" />
+          <button className="btn-success">
+            <i className="fa fa-floppy-o" aria-hidden="true" />
           </button>
              :
           <button className="btn-primary" onClick={editItem()}>
             <i className="fa fa-wrench" aria-hidden="true" />
           </button>
       }
-      <button className="btn-danger" onClick={deleteItem()}>
+      <button className="btn-danger">
         <i className="fa fa-trash" aria-hidden="true" />
       </button>
     </div>

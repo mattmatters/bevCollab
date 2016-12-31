@@ -25,7 +25,7 @@ const itemReducer = (state = initialState, action) => {
       });
     case EDIT_ITEM:
       return Object.assign({}, state, {
-        view: action.item,
+        view: action.item.toString(),
         edit: true,
       });
     case VIEW_LIST:

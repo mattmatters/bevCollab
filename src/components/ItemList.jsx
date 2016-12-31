@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Item from '../components/item';
 import ListHeader from '../components/ListHeader';
+import ItemFullView from '../components/ItemFullView';
 
 const propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
@@ -9,17 +10,39 @@ const propTypes = {
   })),
   view: PropTypes.string.isRequired,
   edit: PropTypes.bool.isRequired,
+  viewAll: PropTypes.func.isRequired,
+  editItem: PropTypes.func.isRequired,
 };
 
-const ItemList = ({ view, edit, items }) => (
-  <div className="container">
-    <ListHeader view={view} edit={edit} />
-    <ul className="center-block item-list">
-      {items.map(item => <Item {...item} />)}
-    </ul>
-  </div>
-);
-
+const ItemList = ({ view, edit, items, viewAll, editItem }) => {
+  if (view === 'all') {
+    return (
+      <div className="container">
+        <ListHeader view={view} edit={edit} viewAll={() => viewAll} />
+        <ul className="center-block item-list">
+          {
+            items.map((item, index) =>
+              <Item
+                {...item}
+                itemId={index}
+                editItem={() => editItem(index)}
+              />)
+           }
+        </ul>
+      </div>);
+  }
+  return (
+    <div className="container">
+      <ListHeader view={view} edit={edit} viewAll={() => viewAll} />
+      <ItemFullView
+        edit={edit}
+        index={parseInt(view, 10)}
+        item={items[parseInt(view, 10)]} // Need better interface
+        editItem={id => editItem(id)}
+      />
+    </div>
+  );
+};
 
 ItemList.propTypes = propTypes;
 

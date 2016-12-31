@@ -1,11 +1,22 @@
+// Config
+
+h1, h2, h3 {
+  font-family: 'Lobster', cursive;
+}
+
+a, p, li {
+  font-family: 'Raleway', cursive;
+}
+
 // Classes
+
 .navbar {
   width: 100%;
   background-color: yellow;
 }
 
 .navbar-header  {
-  font-family: 'Sonsie One', cursive;
+  font-family: 'Lobster', cursive;
 }
 
 .display-box {
