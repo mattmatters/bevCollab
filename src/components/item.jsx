@@ -14,7 +14,7 @@ const Item = ({ name, style }) => (
       <div className="col-xs-4 text-left">
         {style}
       </div>
-      <div className="col-xs-4 right-block">
+      <div className="col-xs-4 text-right">
         <button className="btn-primary">
           <i className="fa fa-wrench" aria-hidden="true" />
         </button>
