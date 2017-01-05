@@ -36,7 +36,7 @@ const itemReducer = (state = initialState, action) => {
 
     case NEW_ITEM: {
       return Object.assign({}, state, {
-        view: (state.items.length + 1).toString(),
+        view: (state.items.length).toString(),
         edit: true,
         items: state.items.concat({
           name: 'Beer',
