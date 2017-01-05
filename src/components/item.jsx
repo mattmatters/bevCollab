@@ -11,7 +11,7 @@ const Item = ({ name, style, itemId, editItem }) => (
   <li>
     <div className="row">
       <div className="col-xs-4 text-left">
-        {name}
+        <b>{name}</b>
       </div>
       <div className="col-xs-4 text-left">
         <i>{style}</i>
