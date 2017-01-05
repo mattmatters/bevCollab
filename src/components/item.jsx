@@ -14,7 +14,7 @@ const Item = ({ name, style, itemId, editItem }) => (
         {name}
       </div>
       <div className="col-xs-4 text-left">
-        {style}
+        <i>{style}</i>
       </div>
       <div className="col-xs-4 text-right">
         <button className="btn-primary" onClick={() => editItem(itemId)}>
