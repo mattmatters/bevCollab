@@ -20,8 +20,8 @@ const ListHeader = ({ viewAll, view, edit, newItem }) => (
     </div>
     <div className="col-xs-2">
       {
-        view !== 'all' ? <button className="btn-success"><i className="fa fa-floppy-o" aria-hidden="true" /></button>
-                       : <button className="btn-success" onClick={newItem()}>
+        view === 'all' ? <button className="btn-primary" onClick={newItem()}><i className="fa fa-plus-circle" aria-hidden="true" /></button>
+                       : <button className="btn-success">
                          <i className="fa fa-floppy-o" aria-hidden="true" />
                        </button>
       }

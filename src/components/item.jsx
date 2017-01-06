@@ -5,9 +5,10 @@ const propTypes = {
   style: PropTypes.string,
   itemId: PropTypes.number,
   editItem: PropTypes.func,
+  selectItem: PropTypes.func,
 };
 
-const Item = ({ name, style, itemId, editItem }) => (
+const Item = ({ name, style, itemId, editItem, selectItem }) => (
   <li>
     <div className="row">
       <div className="col-xs-4 text-left">
@@ -17,6 +18,9 @@ const Item = ({ name, style, itemId, editItem }) => (
         <i>{style}</i>
       </div>
       <div className="col-xs-4 text-right">
+        <button className="btn-default" onClick={() => selectItem(itemId)}>
+          <i className="fa fa-eye" aria-hidden="true" />
+        </button>
         <button className="btn-primary" onClick={() => editItem(itemId)}>
           <i className="fa fa-wrench" aria-hidden="true" />
         </button>

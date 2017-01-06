@@ -13,9 +13,10 @@ const propTypes = {
   viewAll: PropTypes.func.isRequired,
   editItem: PropTypes.func.isRequired,
   newItem: PropTypes.func.isRequired,
+  selectItem: PropTypes.func.isRequired,
 };
 
-const ItemList = ({ view, edit, items, viewAll, editItem, newItem }) => {
+const ItemList = ({ view, edit, items, viewAll, editItem, newItem, selectItem }) => {
   if (view === 'all') {
     return (
       <div className="container">
@@ -32,6 +33,7 @@ const ItemList = ({ view, edit, items, viewAll, editItem, newItem }) => {
                 {...item}
                 itemId={index}
                 editItem={() => editItem(index)}
+                selectItem={() => selectItem(index)}
               />)
            }
         </ul>

@@ -27,6 +27,10 @@ const ItemFullView = ({ index, edit, item, submitItem, editItem, deleteItem }) =
     <h5>Instructions</h5>
     <p>{item.instructions}</p>
     <div className="right-block">
+      <button className="btn-primary">
+        <i className="fa fa-wrench" aria-hidden="true" />
+      </button>
+
       {
         edit ?
           <button className="btn-success">

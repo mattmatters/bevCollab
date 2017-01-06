@@ -40,9 +40,9 @@ export const viewList = () => ({
   type: VIEW_LIST,
 });
 
-export const selectItem = item => ({
+export const selectItem = itemId => ({
   type: SELECT_ITEM,
-  item,
+  item: itemId.toString(),
 });
 
 export const requestData = list => ({
